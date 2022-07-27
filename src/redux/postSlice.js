@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchPosts = createAsyncThunk("post/fetchPosts", async () => {
+export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
   return res.data;
 });
 
-const todoSlice = createSlice({
+const postSlice = createSlice({
   name: "todo",
   initialState: {
     isLoading: false,
@@ -30,4 +30,4 @@ const todoSlice = createSlice({
   },
 });
 
-export default todoSlice.reducer;
+export default postSlice.reducer;

@@ -1,4 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import todoSlice from "../todoSlice";
-const store = configureStore({ todo: todoSlice });
+import postSlice from "../postSlice";
+const store = configureStore({
+  reducer: { todo: postSlice },
+});
 export default store;
