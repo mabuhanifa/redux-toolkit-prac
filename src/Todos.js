@@ -1,19 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPosts } from "./redux/postSlice";
+import { fetchTodos } from "./redux/postSlice";
 
 const Todos = () => {
   const dispatch = useDispatch();
-  const { isLoading, posts, error } = useSelector((state) => state.posts);
+  const { loading, todo, error } = useSelector((state) => state.todo);
   useEffect(() => {
-    dispatch(fetchPosts());
+    dispatch(fetchTodos());
   }, [dispatch]);
   
-  console.log(isLoading, posts, error);
   return <div>
 
     {
-        posts.map(post =>(<h1> {post.title }</h1>))
+        todo.map(post =>(<h1> {post.title }</h1>))
     }
   </div>;
 };

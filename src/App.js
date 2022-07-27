@@ -1,10 +1,11 @@
 import './App.css';
-import Todos from './Todos';
+import Posts from './Posts';
 
 function App() {
   return (
     <div>
-     <Todos/>
+     {/* <Todos/> */}
+     <Posts/>
     </div>
   );
 }
