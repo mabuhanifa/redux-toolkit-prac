@@ -4,12 +4,18 @@ import { fetchPosts } from "./redux/postSlice";
 
 const Todos = () => {
   const dispatch = useDispatch();
+  const { isLoading, posts, error } = useSelector((state) => state.posts);
   useEffect(() => {
     dispatch(fetchPosts());
   }, [dispatch]);
-  const { isLoading, todos, error } = useSelector((state) => state.todo);
-  console.log(isLoading, todos, error);
-  return <div>todos</div>;
+  
+  console.log(isLoading, posts, error);
+  return <div>
+
+    {
+        posts.map(post =>(<h1> {post.title }</h1>))
+    }
+  </div>;
 };
 
 export default Todos;

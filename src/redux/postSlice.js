@@ -7,24 +7,24 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
 });
 
 const postSlice = createSlice({
-  name: "todo",
+  name: "posts",
   initialState: {
     isLoading: false,
-    todos: [],
+    posts: [],
     error: null,
   },
-  extraReducer: (builder) => {
+  extraReducers: (builder) => {
     builder.addCase(fetchPosts.pending, (state) => {
       state.isLoading = true;
     });
     builder.addCase(fetchPosts.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.todos = action.payload;
+      state.posts = action.payload;
       state.error = null;
     });
     builder.addCase(fetchPosts.rejected, (state, action) => {
       state.isLoading = false;
-      state.todos = [];
+      state.posts = [];
       state.error = action.error.message;
     });
   },
