@@ -5,7 +5,6 @@ export const fetchCustomTodo = createAsyncThunk(
   "posts/fetchPosts",
   async () => {
     const res = await axios.get("https://jsonplaceholder.typicode.com/todos");
-    console.log(res.data);
     return res.data;
   }
 );
