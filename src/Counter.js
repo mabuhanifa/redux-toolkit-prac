@@ -20,7 +20,7 @@ const Counter = () => {
       <button onClick={() => dispatch(reset())}>Reset</button>
       <input type="number" onChange={(e) => setValue(e.target.value)} />
       <button onClick={() => dispatch(incrementByValue(Number(value)))}>
-        Increment
+        Set Value
       </button>
     </div>
   );
