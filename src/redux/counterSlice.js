@@ -9,11 +9,11 @@ const counterSlice = createSlice({
     increment: (state) => {
       state.counter += 1;
     },
-    decrement: (state) => {
-      state.counter += 1;
+    decrement: (state,action) => {
+      state.counter -= 1;
     },
     incrementByValue: (state, action) => {
-      state.counter += action.payload;
+      state.counter = action.payload;
     },
   },
 });

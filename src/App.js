@@ -1,11 +1,12 @@
 import './App.css';
-import Posts from './Posts';
+import Counter from './Counter';
 
 function App() {
   return (
     <div>
      {/* <Todos/> */}
-     <Posts/>
+     {/* <Posts/> */}
+     <Counter/>
     </div>
   );
 }
