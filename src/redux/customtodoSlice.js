@@ -1,4 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+
+export const fetchCustomTodo = createAsyncThunk(
+  "posts/fetchPosts",
+  async () => {
+    const res = await axios.get("https://jsonplaceholder.typicode.com/todos");
+    console.log(res.data);
+    return res.data;
+  }
+);
 
 const customtodoSclice = createSlice({
   name: "customTodo",
@@ -7,16 +17,16 @@ const customtodoSclice = createSlice({
     todo: [],
     error: null,
   },
-  reducers: {
-    todoRequest: (state) => {
+  extraReducers: {
+    [fetchCustomTodo.pending]: (state) => {
       state.loading = true;
     },
-    todoSuccess: (state, action) => {
+    [fetchCustomTodo.fulfilled]: (state, action) => {
       state.loading = false;
       state.todo = action.payload;
       state.error = null;
     },
-    todoFailed: (state, action) => {
+    [fetchCustomTodo.rejected]: (state, action) => {
       state.todo = [];
       state.error = action.error.message;
     },

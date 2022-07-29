@@ -1,20 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTodos } from "./redux/postSlice";
+import { fetchCustomTodo } from "./redux/customtodoSlice";
+;
 
 const Todos = () => {
   const dispatch = useDispatch();
-  const { loading, todo, error } = useSelector((state) => state.todo);
-  useEffect(() => {
-    dispatch(fetchTodos());
-  }, [dispatch]);
-  
-  return <div>
+  const { loading, todo, error } = useSelector((state) => state.customtodo);
 
-    {
-        todo.map(post =>(<h1> {post.title }</h1>))
-    }
-  </div>;
+  dispatch(fetchCustomTodo());
+
+  return (
+    <div>
+      {todo.map((post) => (
+        <h1> {post.title}</h1>
+      ))}
+    </div>
+  );
 };
 
 export default Todos;
