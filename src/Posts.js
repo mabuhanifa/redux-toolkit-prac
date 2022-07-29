@@ -12,6 +12,7 @@ const Posts = () => {
   console.log(posts, error);
   return (
     <div>
+      {loading && <p>{ loading}</p>}
       {posts.map((post) => (
         <h2>{post.title}</h2>
       ))}
