@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../counterSlice";
+import customtodoReducer from "../customtodoSlice";
 import postReducer from "../postSlice";
 import todoReducer from "../todoSlice";
 
@@ -8,6 +9,7 @@ const store = configureStore({
     todo: postReducer,
     posts: todoReducer,
     counter: counterReducer,
+    customtodo: customtodoReducer,
   },
 });
 
