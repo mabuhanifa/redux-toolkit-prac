@@ -1,11 +1,20 @@
+import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCustomTodo } from "./redux/customtodoSlice";
+import { newSuccess } from "./redux/store/newSlice";
 const Todos = () => {
   const dispatch = useDispatch();
-  const { loading, todo, error } = useSelector((state) => state.customtodo);
+  const {todo} = useSelector((state) => state.newtodos);
+  console.log(todo);
+
   useEffect(() => {
-    dispatch(fetchCustomTodo());
+    const fetch = async () => {
+      const res = await axios.get("https://jsonplaceholder.typicode.com/todos");
+      dispatch(newSuccess(res.data));
+    };
+    fetch();
+
+    
   }, [dispatch]);
   return (
     <div>
